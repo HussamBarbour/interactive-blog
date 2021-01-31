@@ -1,1 +1,1 @@
-# interaticve-blog
+# interactive-blog
