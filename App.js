@@ -5,6 +5,7 @@
  * @format
  * @flow strict-local
  */
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import React from 'react';
 import {
@@ -38,6 +39,7 @@ const App: () => React$Node = () => {
               <Text style={styles.footer}>Engine: Hermes</Text>
             </View>
           )}
+          <Icon name="rocket" size={30} color="#900" />
           <View style={styles.body}>
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>Step One</Text>
