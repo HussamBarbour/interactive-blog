@@ -10,11 +10,16 @@ export default StyleSheet.create({
         justifyContent:'space-between',
         marginBottom:16,
         marginHorizontal:16,
+        borderBottomWidth:1,
+        paddingBottom:6,
+        borderColor:colors.light,
+       
+
         
     },
     body : {
         flex:1,
-       
+          
     },
     image_container:{
         alignSelf:'flex-end',
