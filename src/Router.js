@@ -27,7 +27,7 @@ const Router = () => {
                     generateIcon(focused, color, route),
                 })}
                 tabBarOptions={{
-                    activeTintColor: '#34b7f1',
+                    activeTintColor: '#000000',
                     inactiveTintColor: '#cccccc',
                 }}>
                 <Tab.Screen options={{ title: 'Haberler' }} name="BlogStack" component={BlogStack} />
