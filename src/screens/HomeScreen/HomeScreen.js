@@ -3,7 +3,11 @@ import { useFetch } from '../../hooks';
 import { Loading} from '../../components';
 import {Home} from '../../containers';
 
-export function HomeScreen() {
+export function HomeScreen({navigation}) {
+    function goToPost(){
+        navigation.navigate('Post')
+
+    }
     const {
         data : latestNews,
         loading:latestNewsLoding,
@@ -23,6 +27,6 @@ export function HomeScreen() {
     }
 
     return (
-       <Home latestNews= {latestNews}/>
+       <Home latestNews= {latestNews} goToPost={goToPost}/>
     )
 }

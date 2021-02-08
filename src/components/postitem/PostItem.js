@@ -2,9 +2,9 @@ import React from 'react'
 import { View, Text ,Image, TouchableOpacity} from 'react-native'
 import styles from './styles'
 
-export function PostItem({post}) {
+export function PostItem({post, onPress}) {
     return (
-        <TouchableOpacity>
+        <TouchableOpacity onPress={onPress}>
         <View style={styles.container}>
             
             <View style={styles.body}>
