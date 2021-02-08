@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { More, Category, Post } from './pages';
-import {HomeScreen}  from './screens';
+import {HomeScreen, PostScreen}  from './screens';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const Stack = createStackNavigator();
@@ -14,7 +14,7 @@ const BlogStack = () => {
         <Stack.Navigator screenOptions={{ header: () => null }}>
             <Stack.Screen name="Home" component={HomeScreen} />
             <Stack.Screen name="Category" component={Category} />
-            <Stack.Screen name="Post" component={Post} />
+            <Stack.Screen name="Post" component={PostScreen} />
         </Stack.Navigator>
     );
 };

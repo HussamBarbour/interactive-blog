@@ -1,9 +1,10 @@
 import React from 'react'
-import { View, Text ,Image} from 'react-native'
+import { View, Text ,Image, TouchableOpacity} from 'react-native'
 import styles from './styles'
 
 export function PostItem({post}) {
     return (
+        <TouchableOpacity>
         <View style={styles.container}>
             
             <View style={styles.body}>
@@ -20,7 +21,12 @@ export function PostItem({post}) {
 
             </View>
 
+           
+
+           
+
         </View>
+        </TouchableOpacity>
         
     );
 }
