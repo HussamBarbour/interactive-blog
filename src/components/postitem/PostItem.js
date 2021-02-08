@@ -1,10 +1,12 @@
 import React from 'react'
 import { View, Text ,Image, TouchableOpacity} from 'react-native'
 import styles from './styles'
+import {useNavigation} from '@react-navigation/native';
 
 export function PostItem({post, onPress}) {
+    const navigation = useNavigation();
     return (
-        <TouchableOpacity onPress={onPress}>
+        <TouchableOpacity onPress={()=> navigation.navigate('Post',{post})}>
         <View style={styles.container}>
             
             <View style={styles.body}>
@@ -20,8 +22,6 @@ export function PostItem({post, onPress}) {
             }
 
             </View>
-
-           
 
            
 

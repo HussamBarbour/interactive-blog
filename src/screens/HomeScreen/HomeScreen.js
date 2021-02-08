@@ -4,8 +4,8 @@ import { Loading} from '../../components';
 import {Home} from '../../containers';
 
 export function HomeScreen({navigation}) {
-    function goToPost(){
-        navigation.navigate('Post')
+    function goToPost(item){
+        navigation.navigate('Post',{post:item})
 
     }
     const {
@@ -27,6 +27,6 @@ export function HomeScreen({navigation}) {
     }
 
     return (
-       <Home latestNews= {latestNews} goToPost={goToPost}/>
+       <Home latestNews= {latestNews} />
     )
 }
