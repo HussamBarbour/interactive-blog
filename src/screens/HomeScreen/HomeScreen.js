@@ -2,8 +2,11 @@ import React, { useEffect } from 'react'
 import { useFetch } from '../../hooks';
 import { Loading} from '../../components';
 import {Home} from '../../containers';
+import {useDispatch} from 'react-redux';
 
 export function HomeScreen() {
+
+   const dispatch = useDispatch();
 
 
     const {
@@ -22,6 +25,10 @@ export function HomeScreen() {
             <Loading/>
         );
     }
+        dispatch({type: 'SET_CATEGORIES', payload: {categories: appData.categories}})
+        console.log(appData.categories);
+    
+    
 
     return (
        <Home latestNews= {appData.latest_posts} />

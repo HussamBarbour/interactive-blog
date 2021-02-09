@@ -1,10 +1,19 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View, Text,FlatList  } from 'react-native'
 
-export function Category() {
+export function Category({categories}) {
+
+    const renderCategories = ({item}) => (
+        <Text>{item.name}</Text>
+    );
     return (
         <View>
-            <Text>Category</Text>
+            
+            <FlatList 
+            data={categories}
+            keyExtractor={item => item.term_id.toString()}
+            renderItem={renderCategories}
+            />
         </View>
-    )
+    ) 
 }
