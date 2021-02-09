@@ -3,11 +3,8 @@ import { useFetch } from '../../hooks';
 import { Loading} from '../../components';
 import {Home} from '../../containers';
 
-export function HomeScreen({navigation}) {
-    function goToPost(item){
-        navigation.navigate('Post',{post:item})
+export function HomeScreen() {
 
-    }
     const {
         data : latestNews,
         loading:latestNewsLoding,
