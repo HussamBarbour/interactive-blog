@@ -1,9 +1,10 @@
 import React from 'react'
-import { SafeAreaView, SaveAreaView, Text } from 'react-native'
+import { SafeAreaView, Text } from 'react-native'
+import global_styles from '../../styles/global';
 
 export function More() {
     return (
-        <SafeAreaView>
+        <SafeAreaView  style={global_styles.page_container}>
             <Text>More</Text>
         </SafeAreaView>
     )

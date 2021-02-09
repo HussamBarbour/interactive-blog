@@ -1,12 +1,29 @@
-import React from 'react'
-import {Category} from '../../containers'
-import {useSelector} from 'react-redux';
+import React, { useEffect } from 'react'
+import { useFetch } from '../../hooks';
+import { Loading } from '../../components';
+import { Category } from '../../containers'
 
-export function CategoryScreen() {
+export function CategoryScreen({ route, navigation }) {
 
-const categoriesList = useSelector((state) => state.categories);
+    const {
+        data: posts,
+        loading: postsLoding,
+        error: postsError,
+        fetch: postsFetch } = useFetch();
+
+    
+    useEffect(() => {
+        postsFetch('posts?cat=' + route.params.category.term_id);
+        navigation.setOptions({
+            title: route.params.category.name,
+        });
+    }, []);
+    if (!posts || postsLoding) {
+        return (
+            <Loading />
+        );
+    }
     return (
-        
-        <Category categories= {categoriesList}/>
+        <Category category={route.params.category} posts={posts} />
     )
 }

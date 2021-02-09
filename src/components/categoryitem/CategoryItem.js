@@ -1,11 +1,16 @@
 import React from 'react'
-import { View, Text } from 'react-native'
-
+import { View, Text,TouchableOpacity } from 'react-native'
+import styles from './styles';
+import {useNavigation} from '@react-navigation/native';
 
 export function CategoryItem({category}) {
+    const navigation = useNavigation();
+
     return (
-        <View>
-            <Text>{category.name}</Text>
-        </View>
+        <TouchableOpacity  onPress={()=> navigation.navigate('Category',{category})}>
+            <View style={styles.container}>
+                <Text>{category.name}</Text>
+            </View>
+        </TouchableOpacity>
     )
 }

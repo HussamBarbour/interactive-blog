@@ -1,6 +1,7 @@
 import React from 'react'
 import { SafeAreaView, FlatList } from 'react-native'
-import {PostItem , Loading} from '../../components';
+import {PostItem} from '../../components';
+import global_styles from '../../styles/global';
 
 export  function Home({latestNews}) {
   
@@ -8,7 +9,7 @@ export  function Home({latestNews}) {
         <PostItem post={item}  />
     );
     return (
-        <SafeAreaView>
+        <SafeAreaView style={global_styles.page_container}>
             <FlatList
                 data={latestNews}
                 keyExtractor={(item) => item.ID.toString()}

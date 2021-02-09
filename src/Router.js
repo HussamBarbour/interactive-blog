@@ -19,6 +19,16 @@ const BlogStack = () => {
     );
 };
 
+const CategoiesStack = () => {
+    return (
+        <Stack.Navigator>
+            <Stack.Screen name="Categories" component={CategoriesScreen} />
+            <Stack.Screen name="Category" component={CategoryScreen} />
+            <Stack.Screen name="Post" component={PostScreen} />
+        </Stack.Navigator>
+    );
+};
+
 const Router = () => {
     return (
         <MainProvider>
@@ -33,7 +43,7 @@ const Router = () => {
                         inactiveTintColor: '#cccccc',
                     }}>
                     <Tab.Screen options={{ title: 'Haberler' }} name="BlogStack" component={BlogStack} />
-                    <Tab.Screen options={{ title: 'Kategoriler' }} name="Categories" component={CategoriesScreen} />
+                    <Tab.Screen options={{ title: 'Kategoriler' }} name="Categories" component={CategoiesStack} />
                     <Tab.Screen options={{ title: 'Daha Fazla' }} name="More" component={MoreScreen} />
                 </Tab.Navigator>
             </NavigationContainer>
