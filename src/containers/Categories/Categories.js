@@ -1,10 +1,11 @@
 import React from 'react'
 import { SafeAreaView,View, Text,FlatList } from 'react-native'
+import {CategoryItem} from '../../components';
 
 export function Categories({categories}) {
 
     const renderCategories = ({item}) => (
-        <Text>{item.name}</Text>
+        <CategoryItem category={item}/>
     );
     return (
 
