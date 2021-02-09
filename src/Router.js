@@ -5,6 +5,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { More, Category } from './pages';
 import {HomeScreen, PostScreen}  from './screens';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import MainProvider from './context/MainProvider';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -21,20 +22,22 @@ const BlogStack = () => {
 
 const Router = () => {
     return (
-        <NavigationContainer>
-            <Tab.Navigator
-                screenOptions={({ route }) => ({
-                    tabBarIcon: ({ focused, color }) =>
-                    generateIcon(focused, color, route),
-                })}
-                tabBarOptions={{
-                    activeTintColor: '#000000',
-                    inactiveTintColor: '#cccccc',
-                }}>
-                <Tab.Screen options={{ title: 'Haberler' }} name="BlogStack" component={BlogStack} />
-                <Tab.Screen options={{ title: 'Daha Fazla' }} name="More" component={More} />
-            </Tab.Navigator>
-        </NavigationContainer>
+        <MainProvider>
+            <NavigationContainer>
+                <Tab.Navigator
+                    screenOptions={({ route }) => ({
+                        tabBarIcon: ({ focused, color }) =>
+                        generateIcon(focused, color, route),
+                    })}
+                    tabBarOptions={{
+                        activeTintColor: '#000000',
+                        inactiveTintColor: '#cccccc',
+                    }}>
+                    <Tab.Screen options={{ title: 'Haberler' }} name="BlogStack" component={BlogStack} />
+                    <Tab.Screen options={{ title: 'Daha Fazla' }} name="More" component={More} />
+                </Tab.Navigator>
+            </NavigationContainer>
+        </MainProvider>
     );
 };
 
