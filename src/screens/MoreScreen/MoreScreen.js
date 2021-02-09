@@ -1,10 +1,8 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { More } from '../../containers'
 
 export function MoreScreen() {
     return (
-        <View>
-            <Text>MoreScreen</Text>
-        </View>
+        <More/>
     )
 }

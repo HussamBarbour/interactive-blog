@@ -1,10 +1,10 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { SafeAreaView, SaveAreaView, Text } from 'react-native'
 
 export function More() {
     return (
-        <View>
+        <SafeAreaView>
             <Text>More</Text>
-        </View>
+        </SafeAreaView>
     )
 }

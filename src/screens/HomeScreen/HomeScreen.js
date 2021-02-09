@@ -5,25 +5,25 @@ import {Home} from '../../containers';
 
 export function HomeScreen() {
 
+
     const {
-        data : latestNews,
-        loading:latestNewsLoding,
-        error:latestNewsError,
-        fetch: latestNewsFetch } = useFetch();
-
-
+        data : appData,
+        loading:appDataLoding,
+        error:appDataError,
+        fetch: appDataFetch } = useFetch();
+    
     useEffect(() => {
-        latestNewsFetch('posts');
+        appDataFetch('get-data');
     }, []);
 
 
-    if (!latestNews || latestNewsLoding) {
+    if (!appData || appDataLoding) {
         return (
             <Loading/>
         );
     }
 
     return (
-       <Home latestNews= {latestNews} />
+       <Home latestNews= {appData.latest_posts} />
     )
 }
