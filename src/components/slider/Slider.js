@@ -20,7 +20,7 @@ export  function Slider({featured_posts}) {
               loop={true}
               autoplay={true}
               autoplayInterval={5000}
-              layout={'default'}
+              
 
             />
           
