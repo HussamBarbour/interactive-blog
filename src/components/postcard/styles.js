@@ -7,6 +7,7 @@ const deviceSize = Dimensions.get('window');
 export default StyleSheet.create({
     container:{
         marginVertical:15,
+        
     },
     body : {
     },
@@ -17,10 +18,13 @@ export default StyleSheet.create({
         width: 400,
         alignSelf: 'flex-start',
         resizeMode: 'contain',
+        borderRadius:5,
     },
     title:{
         fontSize:fontsize.large,
         marginVertical:10,
+        fontWeight:'bold',
+        
     },
 });
 

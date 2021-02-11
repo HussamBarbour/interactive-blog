@@ -13,28 +13,22 @@ export  function Home({latest_posts,featured_posts}) {
     const renderPosts = ({item}) => (
         <PostItem post={item}  />
     );
-    return (
-        <SafeAreaView style={global_styles.page_container}>
-            <Carousel
+
+    const slider = () => (
+        <Carousel
               data={featured_posts}
               renderItem={renderSlider}
               sliderWidth={Dimensions.get('window').width}
               itemWidth={400}
 
             />
-            {/* <ScrollView>
-                {
-                    featured_posts.map((post,key)=>{
-                        return (
-                            <View key={key}>
-                                <PostCard post={post}  />
-                            </View>
-                        )
-                    })
-                }
-            </ScrollView> */}
+    )
+    return (
+        <SafeAreaView style={global_styles.page_container}>
             
-            <FlatList
+        
+            
+            <FlatList ListHeaderComponent= {slider}
                 data={latest_posts}
                 keyExtractor={(item) => item.ID.toString()}
                 renderItem={renderPosts}
