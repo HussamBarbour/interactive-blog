@@ -14,8 +14,8 @@ export default StyleSheet.create({
     image_container:{
     },
     image:{
-        height: 225,
-        width: 400,
+        height: 197,
+        width: 350,
         alignSelf: 'flex-start',
         resizeMode: 'contain',
         borderRadius:5,
@@ -24,6 +24,7 @@ export default StyleSheet.create({
         fontSize:fontsize.large,
         marginVertical:10,
         fontWeight:'bold',
+        
         
     },
 });

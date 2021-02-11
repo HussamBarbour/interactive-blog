@@ -12,12 +12,18 @@ export  function Slider({featured_posts}) {
     return (
         <View>
        <Carousel
+                
               data={featured_posts}
               renderItem={renderSlider}
               sliderWidth={Dimensions.get('window').width}
-              itemWidth={400}
+              itemWidth={350}
+              loop={true}
+              autoplay={true}
+              autoplayInterval={5000}
+              layout={'default'}
 
             />
+          
         </View>
     );
 }
