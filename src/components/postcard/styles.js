@@ -1,0 +1,26 @@
+import {StyleSheet, Dimensions} from 'react-native';
+import colors from '../../styles/colors';
+import fontsize from '../../styles/font-size';
+const deviceSize = Dimensions.get('window');
+
+
+export default StyleSheet.create({
+    container:{
+        marginVertical:15,
+    },
+    body : {
+    },
+    image_container:{
+    },
+    image:{
+        height: 225,
+        width: 400,
+        alignSelf: 'flex-start',
+        resizeMode: 'contain',
+    },
+    title:{
+        fontSize:fontsize.large,
+        marginVertical:10,
+    },
+});
+
