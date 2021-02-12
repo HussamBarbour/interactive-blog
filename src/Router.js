@@ -11,20 +11,20 @@ const Tab = createBottomTabNavigator();
 
 const BlogStack = () => {
     return (
-        <Stack.Navigator screenOptions={{ header: () => null }}>
-            <Stack.Screen name="Home" component={HomeScreen} />
-            <Stack.Screen name="Category" component={CategoryScreen} />
-            <Stack.Screen name="Post" component={PostScreen} />
+        <Stack.Navigator  screenOptions={{ header: () => null }}>
+            <Stack.Screen name="Home" options={{headerShown: false}} component={HomeScreen} />
+            <Stack.Screen name="Category" options={{title: ''}} component={CategoryScreen} />
+            <Stack.Screen name="Post" options={{title: ''}} component={PostScreen} />
         </Stack.Navigator>
     );
 };
 
 const CategoiesStack = () => {
     return (
-        <Stack.Navigator>
-            <Stack.Screen name="Categories" component={CategoriesScreen} />
-            <Stack.Screen name="Category" component={CategoryScreen} />
-            <Stack.Screen name="Post" component={PostScreen} />
+        <Stack.Navigator  screenOptions={{ header: () => null }}>
+            <Stack.Screen name="Categories" options={{title: 'Kategoriler'}} component={CategoriesScreen} />
+            <Stack.Screen name="Category" options={{title: ''}} component={CategoryScreen} />
+            <Stack.Screen name="Post" options={{title: ''}} component={PostScreen} />
         </Stack.Navigator>
     );
 };
@@ -36,7 +36,7 @@ const Router = () => {
                 <Tab.Navigator
                     screenOptions={({ route }) => ({
                         tabBarIcon: ({ focused, color }) =>
-                        generateIcon(focused, color, route),
+                        generateIcon(focused, color, route)
                     })}
                     tabBarOptions={{
                         activeTintColor: '#000000',
