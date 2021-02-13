@@ -47,9 +47,8 @@ export default StyleSheet.create({
     
     date:{
         fontSize:fontsize.small,
-        backgroundColor: '#000',
-        color: '#fff',
-        padding: 5,
+        color: '#000',
+       marginRight:10,
     },
     content: {
         fontSize: fontsize.large,
@@ -64,6 +63,16 @@ export default StyleSheet.create({
     },
     back_button_icon:{
         color: '#5c5c5c',
-    }
+    },
+    post_bar_right:{
+       
+        flexDirection:'row',
+        alignItems:'center',
+     
+    },
+    post_bar_left:{
+       
+    },
+
 });
 

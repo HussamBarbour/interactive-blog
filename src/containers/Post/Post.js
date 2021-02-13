@@ -1,10 +1,10 @@
 import React from 'react'
-import { ScrollView, View, Text, SafeAreaView, Image, TouchableOpacity } from 'react-native'
+import { ScrollView, View, Text, SafeAreaView, Image, TouchableOpacity, Share } from 'react-native'
 import styles from './styles'
 import global_styles from '../../styles/global';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-export function Post({ post, back }) {
+export function Post({ post, back, share }) {
     return (
         <SafeAreaView style={global_styles.page_container}>
             <ScrollView>
@@ -20,10 +20,18 @@ export function Post({ post, back }) {
                 <View style={styles.body}>
                     <Text style={styles.title}>{post.post_title}</Text>
                     <View style={styles.post_bar}>
+                        <View style={styles.post_bar_left}> 
                         <View style={styles.category_container}>
                             <Text style={styles.category}>{post.category.name}</Text>
                         </View>
+                        </View>
+                        <View style={styles.post_bar_right}>
                         <Text style={styles.date}>{post.text_date_ago}</Text>
+                        <TouchableOpacity onPress={share}>
+                            <Icon name="share" size={30}/>
+                        </TouchableOpacity>
+                        </View>
+                      
                     </View>
                     <Text style={styles.content}>{post.post_content}</Text>
                 </View>
