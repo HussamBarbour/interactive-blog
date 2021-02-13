@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react'
+import React, { useEffect,useState } from 'react'
 import { useFetch } from '../../hooks';
 import { Loading } from '../../components';
 import { Home } from '../../containers';
 import { useDispatch } from 'react-redux';
 
 export function HomeScreen() {
-
+    const [refreshing,setRefreshing] = useState(false);
     const dispatch = useDispatch();
 
 
@@ -15,22 +15,27 @@ export function HomeScreen() {
         error: appDataError,
         fetch: appDataFetch } = useFetch();
 
+    function getData(){
+        setRefreshing(true);
+        appDataFetch('get-data').then(()=>{
+            setRefreshing(false);
+        });
+    }
     useEffect(() => {
-        appDataFetch('get-data');
+        getData();
     }, []);
 
 
-    if (!appData || appDataLoding) {
+    if (!appData) {
         return (
             <Loading />
         );
     }
     dispatch({ type: 'SET_CATEGORIES', payload: { categories: appData.categories } })
-    console.log(appData.categories);
 
 
 
     return (
-        <Home latest_posts={appData.latest_posts} featured_posts={appData.featured_posts} />
+        <Home latest_posts={appData.latest_posts} onRefresh={getData} featured_posts={appData.featured_posts} refreshing={refreshing} />
     )
 }

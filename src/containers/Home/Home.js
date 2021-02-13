@@ -4,7 +4,7 @@ import {PostItem, Slider} from '../../components';
 import global_styles from '../../styles/global';
 
 
-export  function Home({latest_posts,featured_posts}) {
+export  function Home({latest_posts,featured_posts,onRefresh,refreshing}) {
   
     const renderPosts = ({item}) => (
         <PostItem post={item}  />
@@ -22,6 +22,8 @@ export  function Home({latest_posts,featured_posts}) {
                 data={latest_posts}
                 keyExtractor={(item) => item.ID.toString()}
                 renderItem={renderPosts}
+                onRefresh={() => onRefresh()}
+                refreshing={refreshing}
             />
         </SafeAreaView>
     )
