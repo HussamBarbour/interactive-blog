@@ -2,7 +2,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import {HomeScreen, PostScreen, CategoriesScreen,CategoryScreen,MoreScreen}  from './screens';
+import {HomeScreen, PostScreen, CategoriesScreen,CategoryScreen,MoreScreen,SavedPostsScreen}  from './screens';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import MainProvider from './context/MainProvider';
 
@@ -44,6 +44,7 @@ const Router = () => {
                     }}>
                     <Tab.Screen options={{ title: 'Haberler' }} name="BlogStack" component={BlogStack} />
                     <Tab.Screen options={{ title: 'Kategoriler' }} name="Categories" component={CategoiesStack} />
+                    <Tab.Screen options={{ title: 'Kaydedilenler' }} name="SavedPost" component={SavedPostsScreen} />
                     <Tab.Screen options={{ title: 'Daha Fazla' }} name="More" component={MoreScreen} />
                 </Tab.Navigator>
             </NavigationContainer>
@@ -64,9 +65,13 @@ function generateIcon(focused, color, route) {
         case 'Categories':
             iconName = focused ? 'folder-multiple' : 'folder-multiple-outline';
             break;
+            case 'SavedPost':
+                iconName = focused ? 'bookmark-multiple' : 'bookmark-multiple-outline';
+                break;
         case 'More':
             iconName = focused ? 'menu' : 'menu';
         break;
+        
 
         default:
             break;

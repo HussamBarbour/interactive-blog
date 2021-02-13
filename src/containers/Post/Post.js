@@ -30,6 +30,9 @@ export function Post({ post, back, share }) {
                         <TouchableOpacity onPress={share}>
                             <Icon name="share" size={30}/>
                         </TouchableOpacity>
+                        <TouchableOpacity >
+                            <Icon name="bookmark-outline" size={30}/>
+                        </TouchableOpacity>
                         </View>
                       
                     </View>

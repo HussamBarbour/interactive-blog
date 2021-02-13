@@ -3,3 +3,4 @@ export * from './PostScreen/PostScreen';
 export * from './CategoriesScreen/CategoriesScreen';
 export * from './CategoryScreen/CategoryScreen';
 export * from './MoreScreen/MoreScreen';
+export * from './SavedPostsScreen/SavedPostsScreen';
