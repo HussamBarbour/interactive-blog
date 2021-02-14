@@ -1,10 +1,14 @@
 import React from 'react'
-import { ScrollView, View, Text, SafeAreaView, Image, TouchableOpacity, Share } from 'react-native'
+import { ScrollView, View, Text, SafeAreaView, Image, TouchableOpacity, useWindowDimensions } from 'react-native'
 import styles from './styles'
 import global_styles from '../../styles/global';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import HTML from "react-native-render-html";
 
 export function Post({ post, back, share ,save,isSaved}) {
+
+    const contentWidth = useWindowDimensions().width;
+
     return (
         <SafeAreaView style={global_styles.page_container}>
             <ScrollView>
@@ -38,8 +42,9 @@ export function Post({ post, back, share ,save,isSaved}) {
                         </TouchableOpacity>
                         </View>
                     </View>
-                    <Text style={styles.content}>{post.post_content}</Text>
+                    <HTML baseFontStyle={styles.content} source={{ html: '<div>'+post.post_content+'</div>' }} contentWidth={contentWidth} />
                 </View>
+                
             </ScrollView>
         </SafeAreaView>
     );
