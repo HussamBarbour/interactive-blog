@@ -4,6 +4,7 @@ import styles from './styles'
 import global_styles from '../../styles/global';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import HTML from "react-native-render-html";
+import {Header} from '../../components';
 
 export function Post({ post, back, share ,save,isSaved}) {
 
@@ -11,10 +12,13 @@ export function Post({ post, back, share ,save,isSaved}) {
 
     return (
         <SafeAreaView style={global_styles.page_container}>
+            <Header>
+                <TouchableOpacity onPress={share}>
+                            <Icon name="share" color={'white'} size={30}/>
+                        </TouchableOpacity>
+                        </Header>
             <ScrollView>
-                <TouchableOpacity style={styles.back_button} onPress={back}>
-                    <Icon  style={styles.back_button_icon} name="arrow-left-bold-circle-outline" size={40} />
-                </TouchableOpacity>
+               
                 <View style={styles.image_container}>
                     {post.thumbnails.full ?
                         <Image source={{ uri: post.thumbnails.full }} resizeMode="cover" style={styles.image} ></Image> :
@@ -31,9 +35,7 @@ export function Post({ post, back, share ,save,isSaved}) {
                         </View>
                         <View style={styles.post_bar_right}>
                         <Text style={styles.date}>{post.text_date_ago}</Text>
-                        <TouchableOpacity onPress={share}>
-                            <Icon name="share" size={30}/>
-                        </TouchableOpacity>
+                        
                         <TouchableOpacity onPress={save}>
                             {
                                 isSaved ? <Icon name="bookmark" size={30}/> : <Icon name="bookmark-outline" size={30}/>

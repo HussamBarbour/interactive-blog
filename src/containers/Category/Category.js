@@ -11,7 +11,12 @@ export function Category({category,posts}) {
     );
     return (
         <SafeAreaView style={global_styles.page_container}>
-            <Header/>
+             <Header title={category.name}></Header>
+             
+             <View style={global_styles.top_space}>
+
+             </View>
+           
             <FlatList
                 data={posts}
                 keyExtractor={(item) => item.ID.toString()}

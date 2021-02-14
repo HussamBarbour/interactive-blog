@@ -5,6 +5,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {HomeScreen, PostScreen, CategoriesScreen,CategoryScreen,MoreScreen,SavedPostsScreen}  from './screens';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import MainProvider from './context/MainProvider';
+import colors from './styles/colors';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -49,8 +50,8 @@ const Router = () => {
                         generateIcon(focused, color, route)
                     })}
                     tabBarOptions={{
-                        activeTintColor: '#000000',
-                        inactiveTintColor: '#cccccc',
+                        activeTintColor: colors.dark,
+                        inactiveTintColor: '#aaa',
                     }}>
                     <Tab.Screen options={{ title: 'Haberler' }} name="BlogStack" component={BlogStack} />
                     <Tab.Screen options={{ title: 'Kategoriler' }} name="Categories" component={CategoiesStack} />

@@ -35,7 +35,7 @@ export default StyleSheet.create({
     },
     category:{
         fontSize:fontsize.normal,
-        color:colors.header,
+        color:colors.dark,
 
     },
     title:{

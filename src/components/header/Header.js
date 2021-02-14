@@ -5,18 +5,20 @@ import styles from './styles'
 import {useNavigation} from '@react-navigation/native';
 
 
-export  function Header() {
+export  function Header({title, children}) {
     const navigation = useNavigation();
     return (
         <View style={styles.container}>
             <View style={styles.header_left}>
-                <Icon name="arrow-left" size={40} onPress={()=>{navigation.goBack()}}/>
+                <Icon name="arrow-left" style={styles.icon} size={30} onPress={()=>{navigation.goBack()}}/>
 
             </View>
             <View style={styles.header_center}>
+                <Text style={styles.title}>{title}</Text>
 
             </View>
             <View style={styles.header_right}>
+             {children}
 
             </View>
         </View>
