@@ -29,6 +29,16 @@ const CategoiesStack = () => {
     );
 };
 
+
+const SavedStack = () => {
+    return (
+        <Stack.Navigator  screenOptions={{ header: () => null }}>
+            <Stack.Screen name="SavedPost" component={SavedPostsScreen} />
+            <Stack.Screen name="Category" options={{title: ''}} component={CategoryScreen} />
+            <Stack.Screen name="Post" options={{title: ''}} component={PostScreen} />
+        </Stack.Navigator>
+    );
+};
 const Router = () => {
     return (
         <MainProvider>
@@ -44,7 +54,7 @@ const Router = () => {
                     }}>
                     <Tab.Screen options={{ title: 'Haberler' }} name="BlogStack" component={BlogStack} />
                     <Tab.Screen options={{ title: 'Kategoriler' }} name="Categories" component={CategoiesStack} />
-                    <Tab.Screen options={{ title: 'Kaydedilenler' }} name="SavedPost" component={SavedPostsScreen} />
+                    <Tab.Screen options={{ title: 'Kaydedilenler' }} name="SavedStack" component={SavedStack} />
                     <Tab.Screen options={{ title: 'Daha Fazla' }} name="More" component={MoreScreen} />
                 </Tab.Navigator>
             </NavigationContainer>
@@ -65,7 +75,7 @@ function generateIcon(focused, color, route) {
         case 'Categories':
             iconName = focused ? 'folder-multiple' : 'folder-multiple-outline';
             break;
-            case 'SavedPost':
+            case 'SavedStack':
                 iconName = focused ? 'bookmark-multiple' : 'bookmark-multiple-outline';
                 break;
         case 'More':
