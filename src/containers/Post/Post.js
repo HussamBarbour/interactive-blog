@@ -4,7 +4,7 @@ import styles from './styles'
 import global_styles from '../../styles/global';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-export function Post({ post, back, share ,save}) {
+export function Post({ post, back, share ,save,isSaved}) {
     return (
         <SafeAreaView style={global_styles.page_container}>
             <ScrollView>
@@ -31,10 +31,12 @@ export function Post({ post, back, share ,save}) {
                             <Icon name="share" size={30}/>
                         </TouchableOpacity>
                         <TouchableOpacity onPress={save}>
-                            <Icon name="bookmark-outline" size={30}/>
+                            {
+                                isSaved ? <Icon name="bookmark" size={30}/> : <Icon name="bookmark-outline" size={30}/>
+                            }
+                            
                         </TouchableOpacity>
                         </View>
-                      
                     </View>
                     <Text style={styles.content}>{post.post_content}</Text>
                 </View>

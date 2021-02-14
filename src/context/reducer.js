@@ -9,6 +9,9 @@ function reducer(state, action) {
             const { featured_posts } = action.payload;
             return { ...state, featured_posts };
 
+        case 'SET_SAVED_POSTS':
+            const { save_posts } = action.payload;
+            return { ...state, save_posts };
     }
 }
 
