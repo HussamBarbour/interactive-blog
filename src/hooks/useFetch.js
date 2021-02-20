@@ -29,7 +29,7 @@ function useFetch() {
             if (serverData.length > 0){
                 setData([...data,...serverData]);
             } else {
-                setHasMoreItem(false);
+                setHasMoreItem(false)
             }
             setLoadingMore(false);
         } catch (error) {

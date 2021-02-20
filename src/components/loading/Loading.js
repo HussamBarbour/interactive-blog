@@ -1,6 +1,6 @@
 import React from 'react'
 import {SafeAreaView, ActivityIndicator,View, Text,StyleSheet } from 'react-native'
-import styles from './style';
+import styles from './styles';
 
 export function Loading() {
     return (

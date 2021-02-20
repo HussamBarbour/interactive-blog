@@ -1,7 +1,8 @@
 import React from 'react'
 import { SafeAreaView, View, ActivityIndicator, FlatList } from 'react-native'
-import { PostItem, Header } from '../../components';
+import { PostItem, Header,LoadingMore } from '../../components';
 import global_styles from '../../styles/global';
+
 
 
 export function Category({ category, posts, loadMore,loadingMore,hasMoreItem }) {
@@ -13,9 +14,7 @@ export function Category({ category, posts, loadMore,loadingMore,hasMoreItem }) 
         //it will show indicator at the bottom of the list when data is loading otherwise it returns null
         if (!loadingMore && !hasMoreItem) return null;
         return (
-            <ActivityIndicator
-                style={{ color: '#000' }}
-            />
+            <LoadingMore />
         );
     };
     return (
