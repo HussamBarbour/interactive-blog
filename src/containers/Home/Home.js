@@ -28,7 +28,7 @@ export  function Home({latest_posts,featured_posts,onRefresh,refreshing,loadMore
             
             <FlatList ListHeaderComponent= {slider}
                 data={latest_posts}
-                keyExtractor={(item) => item.ID.toString()}
+                keyExtractor={(item,index) => item.ID.toString()}
                 renderItem={renderPosts}
                 onRefresh={() => onRefresh()}
                 refreshing={refreshing}

@@ -28,7 +28,7 @@ export function HomeScreen() {
 
             function loadMore(){
                 if (postsHasMoreItem){
-                    postsLoadMore('posts?posts_per_page=5&paged' + (page + 1));
+                    postsLoadMore('posts?posts_per_page=5&paged=' + (page + 1));
                     setPage(page + 1);
                 }
             }
