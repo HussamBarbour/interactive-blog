@@ -7,6 +7,8 @@ function useFetch() {
     const [data, setData] = useState(null);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
+    const [loadingMore, setLoadingMore] = useState(false);
+    const [hasMoreItem, setHasMoreItem] = useState(true);
 
     async function fetch(endpoint, options) {
         setLoading(true);
@@ -20,7 +22,23 @@ function useFetch() {
         }
     }
 
-    return { data, error, loading, fetch };
+    async function loadMore(endpoint, options) {
+        setLoadingMore(true);
+        try {
+            const { data: serverData } = await axios.get(api_uri + endpoint, options);
+            if (serverData.length > 0){
+                setData([...data,...serverData]);
+            } else {
+                setHasMoreItem(false);
+            }
+            setLoadingMore(false);
+        } catch (error) {
+            setError(error);
+            setLoadingMore(false);
+        }
+    }
+
+    return { data, error, loading, fetch, loadMore,loadingMore,hasMoreItem };
 }
 
 export { useFetch };

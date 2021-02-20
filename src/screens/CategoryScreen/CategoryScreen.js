@@ -1,19 +1,29 @@
-import React, { useEffect } from 'react'
+import React, { useEffect,useState } from 'react'
 import { useFetch } from '../../hooks';
 import { Loading } from '../../components';
 import { Category } from '../../containers'
 
 export function CategoryScreen({ route, navigation }) {
-
+    const [page,setPage] = useState(1);
     const {
         data: posts,
         loading: postsLoding,
         error: postsError,
-        fetch: postsFetch } = useFetch();
-
+        fetch: postsFetch,
+        loadMore: postsLoadMore,
+        loadingMore: postsLoadingMore,
+        hasMoreItem: postsHasMoreItem } = useFetch();
     
+
+    function loadMore(){
+        if (postsHasMoreItem){
+            postsLoadMore('posts?posts_per_page=7&cat=' + route.params.category.term_id+ '&paged=' + (page + 1));
+            setPage(page + 1);
+        }
+    }
+
     useEffect(() => {
-        postsFetch('posts?cat=' + route.params.category.term_id);
+        postsFetch('posts?posts_per_page=7&cat=' + route.params.category.term_id);
         navigation.setOptions({
             title: route.params.category.name,
         });
@@ -24,6 +34,11 @@ export function CategoryScreen({ route, navigation }) {
         );
     }
     return (
-        <Category category={route.params.category} posts={posts} />
+        <Category
+        category={route.params.category}
+        posts={posts} loadMore={loadMore}
+        loadingMore={postsLoadingMore}
+        hasMoreItem={postsHasMoreItem}
+        />
     )
 }
