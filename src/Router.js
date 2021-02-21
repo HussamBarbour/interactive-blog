@@ -2,7 +2,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import {HomeScreen, PostScreen, CategoriesScreen,CategoryScreen,MoreScreen,SavedPostsScreen}  from './screens';
+import {HomeScreen, RegisterScreen,PostScreen, CategoriesScreen,CategoryScreen,MoreScreen,SavedPostsScreen}  from './screens';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import MainProvider from './context/MainProvider';
 import colors from './styles/colors';
@@ -26,6 +26,15 @@ const CategoiesStack = () => {
             <Stack.Screen name="Categories" options={{title: 'Kategoriler'}} component={CategoriesScreen} />
             <Stack.Screen name="Category" options={{title: ''}} component={CategoryScreen} />
             <Stack.Screen name="Post" options={{title: ''}} component={PostScreen} />
+        </Stack.Navigator>
+    );
+};
+
+const MoreStack = () =>{
+    return(
+        <Stack.Navigator  screenOptions={{ header: () => null }}>
+            <Stack.Screen name="More" component={MoreScreen} />
+            <Stack.Screen name="Register" component={RegisterScreen} />
         </Stack.Navigator>
     );
 };
@@ -56,7 +65,7 @@ const Router = () => {
                     <Tab.Screen options={{ title: 'Haberler' }} name="BlogStack" component={BlogStack} />
                     <Tab.Screen options={{ title: 'Kategoriler' }} name="Categories" component={CategoiesStack} />
                     <Tab.Screen options={{ title: 'Kaydedilenler' }} name="SavedStack" component={SavedStack} />
-                    <Tab.Screen options={{ title: 'Daha Fazla' }} name="More" component={MoreScreen} />
+                    <Tab.Screen options={{ title: 'Daha Fazla' }} name="MoreStack" component={MoreStack} />
                 </Tab.Navigator>
             </NavigationContainer>
         </MainProvider>
@@ -79,7 +88,7 @@ function generateIcon(focused, color, route) {
             case 'SavedStack':
                 iconName = focused ? 'bookmark-multiple' : 'bookmark-multiple-outline';
                 break;
-        case 'More':
+        case 'MoreStack':
             iconName = focused ? 'menu' : 'menu';
         break;
         
