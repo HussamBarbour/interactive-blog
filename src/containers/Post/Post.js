@@ -4,9 +4,9 @@ import styles from './styles'
 import global_styles from '../../styles/global';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import HTML from "react-native-render-html";
-import {Header} from '../../components';
+import { Header } from '../../components';
 
-export function Post({ post, back, share ,save,isSaved}) {
+export function Post({ post, back, share, save, isSaved }) {
 
     const contentWidth = useWindowDimensions().width;
 
@@ -14,11 +14,11 @@ export function Post({ post, back, share ,save,isSaved}) {
         <SafeAreaView style={global_styles.page_container}>
             <Header>
                 <TouchableOpacity onPress={share}>
-                            <Icon name="share" color={'white'} size={30}/>
-                        </TouchableOpacity>
-                        </Header>
+                    <Icon name="share" color={'white'} size={30} />
+                </TouchableOpacity>
+            </Header>
             <ScrollView>
-               
+
                 <View style={styles.image_container}>
                     {post.thumbnails.full ?
                         <Image source={{ uri: post.thumbnails.full }} resizeMode="cover" style={styles.image} ></Image> :
@@ -28,25 +28,25 @@ export function Post({ post, back, share ,save,isSaved}) {
                 <View style={styles.body}>
                     <Text style={styles.title}>{post.post_title}</Text>
                     <View style={styles.post_bar}>
-                        <View style={styles.post_bar_left}> 
-                        <View style={styles.category_container}>
-                            <Text style={styles.category}>{post.category.name}</Text>
-                        </View>
+                        <View style={styles.post_bar_left}>
+                            <View style={styles.category_container}>
+                                <Text style={styles.category}>{post.category.name}</Text>
+                            </View>
                         </View>
                         <View style={styles.post_bar_right}>
-                        <Text style={styles.date}>{post.text_date_ago}</Text>
-                        
-                        <TouchableOpacity onPress={save}>
-                            {
-                                isSaved ? <Icon name="bookmark" size={30}/> : <Icon name="bookmark-outline" size={30}/>
-                            }
-                            
-                        </TouchableOpacity>
+                            <Text style={styles.date}>{post.text_date_ago}</Text>
+
+                            <TouchableOpacity onPress={save}>
+                                {
+                                    isSaved ? <Icon name="bookmark" size={30} /> : <Icon name="bookmark-outline" size={30} />
+                                }
+
+                            </TouchableOpacity>
                         </View>
                     </View>
-                    <HTML baseFontStyle={styles.content} source={{ html: '<div>'+post.post_content+'</div>' }} contentWidth={contentWidth} />
+                    <HTML baseFontStyle={styles.content} source={{ html: '<div>' + post.post_content + '</div>' }} contentWidth={contentWidth} />
                 </View>
-                
+
             </ScrollView>
         </SafeAreaView>
     );

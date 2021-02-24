@@ -1,10 +1,10 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import {Register} from '../../containers'
 
 export  function RegisterScreen() {
+
+    
     return (
-        <SafeAreaView>
-            <Text></Text>
-        </SafeAreaView>
+        <Register />
     );
 }

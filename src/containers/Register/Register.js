@@ -1,10 +1,9 @@
 import React from 'react'
-import { View, Text } from 'react-native'
-
-export  function Register() {
+import { SafeAreaView,TouchableOpacity, Text } from 'react-native'
+export function Register() {
     return (
-        <View>
-            <Text></Text>
-        </View>
+        <SafeAreaView>
+            <TouchableOpacity><Text>Kayıt Ol</Text></TouchableOpacity>
+        </SafeAreaView>
     );
 }

@@ -9,7 +9,7 @@ export function More() {
         <SafeAreaView  style={global_styles.page_container}>
             <View style={styles.container}>
                 <ListItem title="Giriş Yap" />
-                <ListItem title="Kayıt Ol"  />
+                <ListItem title="Kayıt Ol"  goTo="Register" />
             </View>
         </SafeAreaView>
     );
