@@ -7,11 +7,13 @@ export default StyleSheet.create({
         padding:10,
         alignItems:'center',
         borderRadius:10,
+        borderWidth: 1,
 
     },
     label:{
         color:'white',
-        
+        fontWeight: 'bold',
+        fontSize: 16,
 
     }
 })

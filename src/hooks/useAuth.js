@@ -32,10 +32,11 @@ function useAuth() {
             }
             return await axios.post('https://interactive.hussamweb.com/wp-json/interactive/v1/create-user', form).then((res) => {
                 setLoading();
-                return res.data;
+                return res;
             }).catch((error) => {
                 setLoading();
-                return error.response.data;
+                setError(error.response);
+                return error.response;
             })
         } catch (err) {
             setLoading();
