@@ -6,3 +6,5 @@ export * from './slider/Slider';
 export * from './header/Header';
 export * from './loadingmore/LoadingMore';
 export * from './listitem/ListItem';
+export * from './input/Input';
+export * from './button/Button';
