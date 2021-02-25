@@ -9,6 +9,13 @@ function useAuth() {
         try {
             setLoading(true);
             setError();
+            return await axios.post('https://interactive.hussamweb.com/wp-json/jwt-auth/v1/token', values).then((res) => {
+                setLoading();
+                return res.data;
+            }).catch((error) => {
+                setLoading();
+                return error.response;
+            })
         } catch (err) {
             setLoading();
             setError(err);
@@ -18,7 +25,6 @@ function useAuth() {
         try {
             setLoading(true);
             setError();
-            console.log(values);
             const FormData = require('form-data');
             const form = new FormData();
             for (var key in values) {
