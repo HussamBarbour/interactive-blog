@@ -8,7 +8,7 @@ export function More() {
     return (
         <SafeAreaView  style={global_styles.page_container}>
             <View style={[styles.container,global_styles.top_space]}>
-                <ListItem title="Giriş Yap" />
+                <ListItem title="Giriş Yap" goTo="Login"/>
                 <ListItem title="Kayıt Ol"  goTo="Register" />
             </View>
         </SafeAreaView>

@@ -5,3 +5,4 @@ export * from './CategoryScreen/CategoryScreen';
 export * from './MoreScreen/MoreScreen';
 export * from './SavedPostsScreen/SavedPostsScreen';
 export * from './RegisterScreen/RegisterScreen';
+export * from './LoginScreen/LoginScreen';

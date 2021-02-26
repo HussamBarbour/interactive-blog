@@ -2,7 +2,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import {HomeScreen, RegisterScreen,PostScreen, CategoriesScreen,CategoryScreen,MoreScreen,SavedPostsScreen}  from './screens';
+import {HomeScreen, RegisterScreen,PostScreen, CategoriesScreen,CategoryScreen,MoreScreen,SavedPostsScreen, LoginScreen}  from './screens';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import MainProvider from './context/MainProvider';
 import colors from './styles/colors';
@@ -35,6 +35,7 @@ const MoreStack = () =>{
         <Stack.Navigator  screenOptions={{ header: () => null }}>
             <Stack.Screen name="More" component={MoreScreen} />
             <Stack.Screen name="Register" component={RegisterScreen} />
+            <Stack.Screen name="Login" component={LoginScreen} />
         </Stack.Navigator>
     );
 };

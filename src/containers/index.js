@@ -5,3 +5,4 @@ export * from './Category/Category';
 export * from './More/More';
 export * from './SavedPosts/SavedPosts';
 export * from './Register/Register';
+export * from './Login/Login';
