@@ -3,27 +3,57 @@ import { SafeAreaView, View } from 'react-native'
 import { Input, Button, Header } from '../../components';
 import styles from './styles';
 import global_styles from '../../styles/global';
+import { Formik } from 'formik';
+import validationSchema from './validationSchema';
 
-export function Login(){
+const initialFormValues = {
+    email: '',
+    password: '',
+};
+
+export function Login({loading, onSubmit}){
     return(
-        <SafeAreaView  style={global_styles.page_container}>
-            <Header title='Giriş Yap'/>
-            <View style={[styles.container,global_styles.top_space]}>
+        <SafeAreaView style={global_styles.page_container}>
+            <Header title='Giriş Yap' />
+            <Formik
+                validationSchema={validationSchema}
+                initialValues={initialFormValues}
+                onSubmit={onSubmit}>
+                {({
+                    handleChange,
+                    handleBlur,
+                    handleSubmit,
+                    values,
+                    errors,
+                    touched,
+                }) => (
+                    <View style={[styles.container, global_styles.top_space]}>
 
-                <Input
-                    placeholder='E-mail adresiniz..'
-                    autoCapitalize="none"
-                    keyboardType="email-address" />
+                        <Input
+                            onChangeText={handleChange('email')}
+                            onBlur={handleBlur('email')}
+                            value={values.email}
+                            error={errors.email}
+                            isTouched={touched.email}
+                            placeholder='E-mail adresiniz..'
+                            autoCapitalize="none"
+                            keyboardType="email-address" />
 
-                <Input
-                    placeholder='Şifreniz..'
-                    autoCapitalize="none"
-                    secureTextEntry
-                />
+                        <Input
+                            onChangeText={handleChange('password')}
+                            onBlur={handleBlur('password')}
+                            value={values.password}
+                            error={errors.password}
+                            isTouched={touched.password}
+                            placeholder='Şifreniz..'
+                            autoCapitalize="none"
+                            secureTextEntry
+                        />
 
-                <Button label='Giriş Yap'/>
-            </View>
-
+                        <Button loading={loading} onPress={handleSubmit} label='Giriş Yap' />
+                    </View>
+                )}
+            </Formik>
 
         </SafeAreaView>
     )
