@@ -7,7 +7,7 @@ import { Formik } from 'formik';
 import validationSchema from './validationSchema';
 
 const initialFormValues = {
-    email: '',
+    username: '',
     password: '',
 };
 
@@ -30,14 +30,13 @@ export function Login({loading, onSubmit}){
                     <View style={[styles.container, global_styles.top_space]}>
 
                         <Input
-                            onChangeText={handleChange('email')}
-                            onBlur={handleBlur('email')}
-                            value={values.email}
-                            error={errors.email}
-                            isTouched={touched.email}
-                            placeholder='E-mail adresiniz..'
-                            autoCapitalize="none"
-                            keyboardType="email-address" />
+                            onChangeText={handleChange('username')}
+                            onBlur={handleBlur('username')}
+                            value={values.username}
+                            error={errors.username}
+                            isTouched={touched.username}
+                            placeholder='E-mail adresiniz veya Kullancı adınız..'
+                            autoCapitalize="none" />
 
                         <Input
                             onChangeText={handleChange('password')}

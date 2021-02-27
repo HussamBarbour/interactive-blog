@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -6,11 +6,21 @@ import {HomeScreen, RegisterScreen,PostScreen, CategoriesScreen,CategoryScreen,M
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import MainProvider from './context/MainProvider';
 import colors from './styles/colors';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useDispatch } from 'react-redux';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
 const BlogStack = () => {
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        const localLogin = AsyncStorage.getItem('@USER');
+        if ( localLogin ) {
+            dispatch({ type: 'SET_USER', payload: { user: JSON.parse(sign.data) } });
+        }
+    }, []);
     return (
         <Stack.Navigator  screenOptions={{ header: () => null }}>
             <Stack.Screen name="Home" options={{headerShown: false}} component={HomeScreen} />

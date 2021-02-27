@@ -11,7 +11,7 @@ export  function RegisterScreen() {
     async function handleSubmit(values) {
         const register = await signUp(values);
         if (register.status == 200) {
-            navigation.navigate('More');
+            navigation.navigate('Login');
         } else {
             Alert.alert('Hata', register.data.data[0].message);
         }

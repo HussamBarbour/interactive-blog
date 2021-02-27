@@ -4,6 +4,7 @@ import { useState } from 'react';
 function useAuth() {
     const [loading, setLoading] = useState();
     const [error, setError] = useState();
+    const [loged, setLoged] = useState();
 
     async function login(values) {
         try {
@@ -11,7 +12,7 @@ function useAuth() {
             setError();
             return await axios.post('https://interactive.hussamweb.com/wp-json/jwt-auth/v1/token', values).then((res) => {
                 setLoading();
-                return res.data;
+                return res;
             }).catch((error) => {
                 setLoading();
                 return error.response;
@@ -44,7 +45,24 @@ function useAuth() {
         }
     }
 
-    return { loading, error, login, signUp };
+    async function check(token) {
+        try {
+            let headers = {
+                Authorization: 'Bearer ' + token
+            }
+            return await axios.post('https://interactive.hussamweb.com/wp-json/jwt-auth/v1/token/validate', {},{headers}).then((res) => {
+                setLoged(true);
+                return true;
+            }).catch((error) => {
+                setLoged(false);
+                return false;
+            })
+        } catch (err) {
+            setLoged(false);
+            return false;
+        }
+    }
+    return { loading, error,loged, login,check, signUp };
 }
 
 export { useAuth };

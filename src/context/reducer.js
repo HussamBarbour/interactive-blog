@@ -12,6 +12,10 @@ function reducer(state, action) {
         case 'SET_SAVED_POSTS':
             const { save_posts } = action.payload;
             return { ...state, save_posts };
+
+        case 'SET_USER':
+            const { user } = action.payload;
+            return { ...state, user };
     }
 }
 

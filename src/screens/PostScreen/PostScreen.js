@@ -1,8 +1,8 @@
 import React, { useEffect ,useState} from 'react'
 import { Post } from '../../containers'
-import { Share, Alert} from 'react-native';
+import { Share} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 export function PostScreen({ route, navigation }) {
 
