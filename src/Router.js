@@ -7,7 +7,7 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import MainProvider from './context/MainProvider';
 import colors from './styles/colors';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useDispatch } from 'react-redux';
+import { useDispatch , useSelector} from 'react-redux';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -43,12 +43,19 @@ const CategoiesStack = () => {
     );
 };
 
+
+
 const MoreStack = () =>{
+    const user = useSelector((state) => state.user);
     return(
         <Stack.Navigator  screenOptions={{ header: () => null }}>
             <Stack.Screen name="More" component={MoreScreen} />
-            <Stack.Screen name="Register" component={RegisterScreen} />
-            <Stack.Screen name="Login" component={LoginScreen} />
+            
+            {!user ?  <Stack.Screen name="Register" component={RegisterScreen} />: null}
+            
+            {!user ?  <Stack.Screen name="Login" component={LoginScreen} />: null}
+            
+
         </Stack.Navigator>
     );
 };
