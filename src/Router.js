@@ -14,12 +14,15 @@ const Tab = createBottomTabNavigator();
 
 const BlogStack = () => {
     const dispatch = useDispatch();
-
-    useEffect(() => {
-        const localLogin = AsyncStorage.getItem('@USER');
+    async function checkLogin(){
+        const localLogin = await AsyncStorage.getItem('@USER');
         if ( localLogin ) {
-            dispatch({ type: 'SET_USER', payload: { user: JSON.parse(sign.data) } });
+            dispatch({ type: 'SET_USER', payload: { user: JSON.parse(localLogin) } });
         }
+    }
+    
+    useEffect(() => {
+        checkLogin();
     }, []);
     return (
         <Stack.Navigator  screenOptions={{ header: () => null }}>
