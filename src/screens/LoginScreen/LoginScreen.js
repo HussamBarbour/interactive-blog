@@ -17,7 +17,7 @@ export  function LoginScreen() {
         if (sign.status == 200) {
             await AsyncStorage.setItem('@USER', JSON.stringify(sign.data));
             dispatch({ type: 'SET_USER', payload: { user: sign.data } });
-            navigation.navigate('BlogStack');
+            navigation.goBack();
         } else {
             if (sign.data.code == '[jwt_auth] incorrect_password'){
                 Alert.alert('Hata', 'Girdiniz şifre hatalıdır');

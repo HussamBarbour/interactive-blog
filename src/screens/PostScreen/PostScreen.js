@@ -2,14 +2,18 @@ import React, { useEffect ,useState} from 'react'
 import { Post } from '../../containers'
 import { Share} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useDispatch } from 'react-redux';
+import { useDispatch,useSelector } from 'react-redux';
 
 export function PostScreen({ route, navigation }) {
 
     const [post,setPost]=useState({});
     const [isSaved,setIsSaved]=useState(false);
     const dispatch = useDispatch();
+    const user = useSelector((state) => state.user);
 
+    function goToLogin() {
+      navigation.navigate('Login');
+    }
     async function savePost() {
         let posts = await AsyncStorage.getItem('@POSTS');
         if (!posts) {
@@ -70,6 +74,10 @@ export function PostScreen({ route, navigation }) {
 
     return (
 
-        <Post post={route.params.post} back={()=>{navigation.goBack()}} share={onShare} save={savePost} isSaved={isSaved}/>
+        <Post post={route.params.post}
+        user={user}
+        goToLogin={goToLogin}
+        share={onShare} save={savePost}
+        isSaved={isSaved}/>
     );
 }

@@ -73,6 +73,9 @@ export default StyleSheet.create({
     post_bar_left:{
        
     },
+    post_footer:{
+        marginTop: 30,
+    }
 
 });
 

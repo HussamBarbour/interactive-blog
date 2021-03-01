@@ -29,6 +29,7 @@ const BlogStack = () => {
             <Stack.Screen name="Home" options={{headerShown: false}} component={HomeScreen} />
             <Stack.Screen name="Category" options={{title: ''}} component={CategoryScreen} />
             <Stack.Screen name="Post" options={{title: ''}} component={PostScreen} />
+            <Stack.Screen name="Login" component={LoginScreen} />
         </Stack.Navigator>
     );
 };
@@ -39,6 +40,7 @@ const CategoiesStack = () => {
             <Stack.Screen name="Categories" options={{title: 'Kategoriler'}} component={CategoriesScreen} />
             <Stack.Screen name="Category" options={{title: ''}} component={CategoryScreen} />
             <Stack.Screen name="Post" options={{title: ''}} component={PostScreen} />
+            <Stack.Screen name="Login" component={LoginScreen} />
         </Stack.Navigator>
     );
 };
@@ -61,12 +63,14 @@ const MoreStack = () =>{
 };
 
 
+
 const SavedStack = () => {
     return (
         <Stack.Navigator  screenOptions={{ header: () => null }}>
             <Stack.Screen name="SavedPost" component={SavedPostsScreen} />
             <Stack.Screen name="Category" options={{title: ''}} component={CategoryScreen} />
             <Stack.Screen name="Post" options={{title: ''}} component={PostScreen} />
+            <Stack.Screen name="Login" component={LoginScreen} />
         </Stack.Navigator>
     );
 };

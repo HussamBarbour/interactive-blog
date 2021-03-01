@@ -4,9 +4,9 @@ import styles from './styles'
 import global_styles from '../../styles/global';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import HTML from "react-native-render-html";
-import { Header } from '../../components';
+import { Header,Button } from '../../components';
 
-export function Post({ post, back, share, save, isSaved }) {
+export function Post({ post,user, share, save, isSaved ,goToLogin}) {
 
     const contentWidth = useWindowDimensions().width;
 
@@ -45,6 +45,12 @@ export function Post({ post, back, share, save, isSaved }) {
                         </View>
                     </View>
                     <HTML baseFontStyle={styles.content} source={{ html: '<div>' + post.post_content + '</div>' }} contentWidth={contentWidth} />
+                    <View style={styles.post_footer}>
+                    {!user ? 
+                    <Button style={styles.comment_button} onPress={goToLogin} label="Yorum Yap"/>
+                    : null
+                    }
+                    </View>
                 </View>
 
             </ScrollView>
