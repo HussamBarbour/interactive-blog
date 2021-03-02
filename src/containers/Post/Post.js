@@ -4,7 +4,7 @@ import styles from './styles'
 import global_styles from '../../styles/global';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import HTML from "react-native-render-html";
-import { Header,Button } from '../../components';
+import { Header,Button,CommentForm } from '../../components';
 
 export function Post({ post,user, share, save, isSaved ,goToLogin}) {
 
@@ -48,7 +48,7 @@ export function Post({ post,user, share, save, isSaved ,goToLogin}) {
                     <View style={styles.post_footer}>
                     {!user ? 
                     <Button style={styles.comment_button} onPress={goToLogin} label="Yorum Yap"/>
-                    : null
+                    : <CommentForm post={post}/>
                     }
                     </View>
                 </View>
