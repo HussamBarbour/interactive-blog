@@ -13,14 +13,16 @@ export function CommentForm({post}) {
 
         const comment = {author_name:user.user_display_name,author_email:user.user_email ,post:post.ID, content:content}
         const headers = {Authorization:' Bearer ' + user.token}
-        await axios.post('https://interactive.hussamweb.com/wp-json/wp/v2/comments',comment,{headers})
-
+        await axios.post('http://interactive.hussamweb.com/wp-json/wp/v2/comments',comment,{headers})
+        setContent('');
+        
     }
 
     return (
         <View>
             <Input 
             onChangeText={(value) => setContent(value)}
+            value={content}
             placeholder="Yorum yap.."/>
             <Button label="Gönder" onPress={sendComment}/>
 
