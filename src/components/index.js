@@ -9,3 +9,4 @@ export * from './listitem/ListItem';
 export * from './input/Input';
 export * from './button/Button';
 export * from './commentform/CommentForm';
+export * from './comments/Comments';
