@@ -7,10 +7,21 @@ export default StyleSheet.create({
         marginHorizontal: 16,
         marginTop: 8,
         marginBottom: 8,
-        borderWidth: 1,
-        borderColor: colors.light,
         paddingHorizontal: 20,
         paddingVertical: 10,
-        borderRadius: 30,
+        borderRadius: 10,
+        backgroundColor: '#eee',
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+
+        elevation: 5,
+    },
+    name:{
+        fontSize: fontsize.large,
     }
 });

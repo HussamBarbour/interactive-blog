@@ -9,7 +9,7 @@ export function CategoryItem({category}) {
     return (
         <TouchableOpacity  onPress={()=> navigation.navigate('Category',{category})}>
             <View style={styles.container}>
-                <Text>{category.name}</Text>
+                <Text style={styles.name}>{category.name}</Text>
             </View>
         </TouchableOpacity>
     )
