@@ -14,15 +14,15 @@ export default StyleSheet.create({
         backgroundColor: '#eee',
         padding: 10,
         borderRadius: 10,
-        shadowColor: "#000",
+        shadowColor: "#333",
         shadowOffset: {
             width: 0,
-            height: 2,
+            height: 1,
         },
         shadowOpacity: 0.25,
-        shadowRadius: 3.84,
+        shadowRadius: 2.84,
 
-        elevation: 5,
+        elevation: 3,
     },
     header: {
         fontSize: 20,

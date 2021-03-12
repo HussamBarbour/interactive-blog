@@ -11,15 +11,15 @@ export default StyleSheet.create({
         paddingVertical: 10,
         borderRadius: 10,
         backgroundColor: '#eee',
-        shadowColor: "#000",
+        shadowColor: "#333",
         shadowOffset: {
             width: 0,
-            height: 2,
+            height: 1,
         },
         shadowOpacity: 0.25,
-        shadowRadius: 3.84,
+        shadowRadius: 2.84,
 
-        elevation: 5,
+        elevation: 3,
     },
     name:{
         fontSize: fontsize.large,

@@ -18,7 +18,7 @@ export function ListItem({ title, goTo, onPress }) {
     return (
         <View style={styles.container}>
             <TouchableOpacity style={styles.button} onPress={onClick}>
-                <Text>{title}</Text>
+                <Text style={styles.buttonText}>{title}</Text>
             </TouchableOpacity>
         </View>
     );

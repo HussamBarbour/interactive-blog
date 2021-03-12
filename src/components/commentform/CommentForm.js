@@ -1,5 +1,5 @@
 import React,{useState}from 'react'
-import { View, Text } from 'react-native';
+import { View, Alert } from 'react-native';
 import {Button, Input} from '../index';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
@@ -15,7 +15,7 @@ export function CommentForm({post}) {
         const headers = {Authorization:' Bearer ' + user.token}
         await axios.post('http://interactive.hussamweb.com/wp-json/wp/v2/comments',comment,{headers})
         setContent('');
-        
+        Alert.alert('Tebrikler!', 'Yorum onay bekleniyor en kısa zamanda değerlendirilecektir');
     }
 
     return (

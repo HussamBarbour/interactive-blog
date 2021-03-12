@@ -9,10 +9,13 @@ export default StyleSheet.create({
       borderWidth: 1,
       padding: 10,
       alignItems: 'center',
-      borderColor: colors.dark,
-      borderRadius: 5,
+      borderColor: '#000',
+      backgroundColor: colors.primary,
+      borderRadius: 10,
       marginBottom: 10,
-
-
+   },
+   buttonText: {
+      color: '#fff',
+      fontSize: fontsize.large,
    }
 });
